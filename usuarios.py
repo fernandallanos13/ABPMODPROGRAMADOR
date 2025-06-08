@@ -7,10 +7,29 @@ def registrar_usuario():
     email = input("Ingrese su correo: ")
     contraseña = input("Ingrese una contraseña: ")
 
-    if any(e['email'] == email for e in usuarios):
-        print("Error: El correo utilizado ya se encuentra registrado.")
-        return
+    while True:
+        usuario = input ("Ingrese su nombre de usuario: ").strip()
+        if usuario == "":
+            print("¡ATENCIÓN! El nombre de usuario no puede estar vacío")
+        else:
+            break
 
+    while True:
+        usuario = input("Ingrese su correo: ").strip()
+        if "@" not in email or "." not in email: 
+            print("El correo debe tener @ y un dominio válido")
+        if any(e['email'] == email for e in usuarios):
+            print("Error: El correo utilizado ya se encuentra registrado.")
+        return
+    
+    while True: 
+        contraseña = input("Ingrese una contraseña: ").strip()
+        if len(contraseña) < 6: 
+            print("La contraseña es demasiado corta. Debe contener más de 6 caracteres. ")
+        else:
+            break
+    
+    
     # Si es el primer usuario, se convierte en admin
     rol = 'admin' if not usuarios else 'general'
 
