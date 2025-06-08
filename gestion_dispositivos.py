@@ -44,6 +44,7 @@ def agregar_dispositivo():
     nuevo_dispositivo = {
         "id": dispositivo_id,  
         "nombre": nombre,
+        "name": nombre,
         "tipo": tipo,
         "estado": estado
     }
