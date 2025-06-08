@@ -9,7 +9,7 @@ def listar_dispositivos():
         return
     print("\n__Dispositivos registrados__")
     for dispositivo in dispositivos:
-        print(f"Nombre: {dispositivo['name']}")
+        print(f"Nombre: {dispositivo['nombre']}")
         print(f"Tipo: {dispositivo['tipo']}")
         print(f"Estado: {dispositivo['estado']}")
         print("-" * 20)
@@ -17,7 +17,7 @@ def listar_dispositivos():
 def buscar_dispositivo(identificador):
     """Busca un dispositivo por su Nombre."""
     for dispositivo in dispositivos:
-        if dispositivo['name'] == identificador:
+        if dispositivo['nombre'] == identificador:
             return dispositivo
     return None
 
@@ -43,6 +43,7 @@ def agregar_dispositivo():
 
     nuevo_dispositivo = {
         "id": dispositivo_id,  
+        "nombre": nombre,
         "name": nombre,
         "tipo": tipo,
         "estado": estado

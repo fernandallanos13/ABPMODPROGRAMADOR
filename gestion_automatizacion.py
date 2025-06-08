@@ -13,7 +13,7 @@ def automatizacion_modo_noche():
     for dispositivo in dispositivos: 
         if dispositivo['tipo'] == 'luz' and dispositivo['estado'] == 'apagado':
             dispositivo['estado'] = 'encendido'
-            print(f"La luz '{dispositivo['name']}' fue encendida automáticamente")
+            print(f"La luz '{dispositivo['nombre']}' fue encendida automáticamente")
             luces_encendidas += 1
     
     if luces_encendidas == 0:
@@ -31,11 +31,11 @@ def automatizacion_modo_seguridad():
     for dispositivo in dispositivos:
         if dispositivo['tipo'] == 'camara' and dispositivo['estado'] == 'apagado':
             dispositivo['estado'] = 'encendido'
-            print(f"La cámara '{dispositivo['name']}' fue activada automáticamente")
+            print(f"La cámara '{dispositivo['nombre']}' fue activada automáticamente")
             camaras_activadas += 1
         elif dispositivo['tipo'] == 'alarma' and dispositivo['estado'] == 'apagado':
             dispositivo['estado'] = 'encendido'
-            print(f"La alarma '{dispositivo['name']}' fue activada automáticamente")
+            print(f"La alarma '{dispositivo['nombre']}' fue activada automáticamente")
             alarmas_activadas += 1
     
     total_activados = camaras_activadas + alarmas_activadas

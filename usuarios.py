@@ -1,7 +1,6 @@
 usuarios = []
 
 def registrar_usuario():
-    #TODO: Hacer chequeos de usuario, contraseña y agregar correo. Gracias
     print("\n__ Registro de Usuario __")
     #Aca pedias los datos de inicio y luego chequeabas si estaban correctos, es mejor si a medida que completa
     #chequeamos los datos, cosa de no tener que repetir todo si ingresas mal algo.
