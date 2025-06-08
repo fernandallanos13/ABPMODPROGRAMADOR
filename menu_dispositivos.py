@@ -1,5 +1,6 @@
 import gestion_dispositivos as gd
 import gestion_automatizacion as ga
+import menu_automatizaciones as ma
 from utilidades import limpiar_pantalla
 
 def menu_dispositivos():
@@ -10,9 +11,8 @@ def menu_dispositivos():
         print("3. Agregar Dispositivo")
         print("4. Eliminar Dispositivo")
         print("5. Modificar Estado")
-        print("6. Activar modo noche")
-        print("7. Activar modo seguridad")
-        print("8. Volver")
+        print("6. Automatizaciones")
+        print("7. Volver")
 
         opcion = input("Seleccione una opción: ")
 
@@ -36,10 +36,8 @@ def menu_dispositivos():
             estado = input("Nuevo estado (encendido/apagado): ")
             gd.modificar_estado_dispositivo(identificador, estado)
         elif opcion == '6':
-            ga.automatizacion_modo_noche()
+            ma.menu_automatizaciones()
         elif opcion == '7':
-            ga.automatizacion_modo_seguridad()
-        elif opcion == '8':
             break
         else:
             print("Opción inválida.")
