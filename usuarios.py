@@ -3,31 +3,48 @@ usuarios = []
 def registrar_usuario():
     #TODO: Hacer chequeos de usuario, contraseña y agregar correo. Gracias
     print("\n__ Registro de Usuario __")
-    usuario = input("Ingrese su nombre de usuario: ")
-    email = input("Ingrese su correo: ")
-    contraseña = input("Ingrese una contraseña: ")
-
+    #Aca pedias los datos de inicio y luego chequeabas si estaban correctos, es mejor si a medida que completa
+    #chequeamos los datos, cosa de no tener que repetir todo si ingresas mal algo.
     while True:
-        usuario = input ("Ingrese su nombre de usuario: ").strip()
-        if usuario == "":
-            print("¡ATENCIÓN! El nombre de usuario no puede estar vacío")
-        else:
-            break
-
+        usuario = input("Ingrese su nombre de usuario: ").strip()
+         #cambie el if usuario == '' por el if not, si no es un valor entonces:
+        if not usuario:
+            print("¡ATENCIÓN! El nombre de usuario no puede estar vacío.")
+            continue
+        if any(u['usuario'] == usuario for u in usuarios):
+            print("El nombre de usuario ya está en uso.")
+            #usamos un continue antes del break, por si tenemos problemas con el usuario, tambien chequeamos que no exista
+            # el mismo nombre de usuario
+            continue
+        break
+         
     while True:
-        usuario = input("Ingrese su correo: ").strip()
+        #aca pedias usuario nuevamente, necesitariamos el campo email
+        email = input("Ingrese su correo: ").strip().lower()
+        if not email:
+            print("El correo no puede estar vacio")
+            continue
         if "@" not in email or "." not in email: 
             print("El correo debe tener @ y un dominio válido")
+            continue
         if any(e['email'] == email for e in usuarios):
             print("Error: El correo utilizado ya se encuentra registrado.")
-        return
+            continue
+        break
     
     while True: 
         contraseña = input("Ingrese una contraseña: ").strip()
+        if not contraseña:
+            print("La contraseña no puede estar vacía.")
+            continue
         if len(contraseña) < 6: 
             print("La contraseña es demasiado corta. Debe contener más de 6 caracteres. ")
-        else:
-            break
+            continue
+        confirmar = input("Confirme su contraseña: ").strip()
+        if contraseña != confirmar:
+            print("Las contraseñas no coinciden.")
+            continue
+        break
     
     
     # Si es el primer usuario, se convierte en admin
