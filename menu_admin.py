@@ -1,10 +1,12 @@
 import usuarios as us
 from menu_dispositivos import menu_dispositivos
+from gestion_automatizacion import listar_automatizaciones
 from utilidades import limpiar_pantalla
 
 def menu_admin(usuario_actual):
     while True:
         print("\n__ Menú Administrador __")
+        print("-"*20)
         print("1. Consultar Automatizaciones")
         print("2. Gestionar Dispositivos")
         print("3. Modificar Rol de Usuario")
@@ -14,8 +16,7 @@ def menu_admin(usuario_actual):
 
         if opcion == '1':
             limpiar_pantalla()
-            #TODO: Cambiar esta funcion a que liste las automatizaciones y no un print.
-            print("Modos disponibles: Modo Noche y Modo Seguridad.")    
+            listar_automatizaciones()
         elif opcion == '2':
             limpiar_pantalla()
             menu_dispositivos()
