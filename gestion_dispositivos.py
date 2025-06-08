@@ -1,5 +1,5 @@
 dispositivos = []
-
+#TODO: Agregar ID y busqueda por ID en las funciones
 def listar_dispositivos():
     """lista de los dispositivos"""
     if not dispositivos:
