@@ -2,8 +2,6 @@ import usuarios as us
 from menu_admin import menu_admin
 from menu_usuario import menu_usuario
 
-#TODO: Evaluar dejar limpio el main y hacer un menu de login.
-
 if __name__ == "__main__":
     while True:
         print("\n__ SmartHome Solutions __")

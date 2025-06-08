@@ -1,5 +1,7 @@
+import uuid
+
 dispositivos = []
-#TODO: Agregar ID y busqueda por ID en las funciones
+
 def listar_dispositivos():
     """lista de los dispositivos"""
     if not dispositivos:
@@ -24,11 +26,11 @@ def agregar_dispositivo():
     print("\n__ Agregar Nuevo Dispositivo __")
     tipo = input("Ingrese el tipo de dispositivo (luz, camara, electrodomestico, alarma, etc.): ").lower()
     estado = input("Ingrese el estado inicial (encendido/apagado): ").lower()
-    Nombre = input("Ingrese el nombre del dispositivo: ")
+    nombre = input("Ingrese el nombre del dispositivo: ")
 
     # Validación de nombre duplicado
-    if buscar_dispositivo(Nombre):
-        print(f"Error: Ya existe un dispositivo con nombre '{Nombre}'")
+    if buscar_dispositivo(nombre):
+        print(f"Error: Ya existe un dispositivo con nombre '{nombre}'")
         return
 
     # Validación de estado
@@ -36,14 +38,18 @@ def agregar_dispositivo():
         print("Error: El estado debe ser 'encendido' o 'apagado'")
         return
 
+    # Crear un ID único
+    dispositivo_id = str(uuid.uuid4())
+
     nuevo_dispositivo = {
-        'name': Nombre,
-        'tipo': tipo,
-        'estado': estado
+        "id": dispositivo_id,  
+        "name": nombre,
+        "tipo": tipo,
+        "estado": estado
     }
 
     dispositivos.append(nuevo_dispositivo)
-    print(f"Dispositivo '{Nombre}' agregado exitosamente.")
+    print(f"Dispositivo '{nombre}' agregado exitosamente.")
 
 def eliminar_dispositivo(identificador):
     """Elimina un dispositivo por su nombre."""
